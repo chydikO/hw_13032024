@@ -16,6 +16,8 @@ private:
 public:
     Book();
     Book(const char* title, const char* author, int year);
+    ~Book();
+
     [[nodiscard]] const char* getTitle() const;
     [[nodiscard]] const char* getAuthor() const;
     [[nodiscard]] int getYear() const;

@@ -19,6 +19,7 @@ private:
 
 public:
     Bicycle(const char* brand, const char* model, const Wheel& frontWheel, const Wheel& rearWheel);
+    ~Bicycle();
 
     [[nodiscard]] const char* getBrand() const;
     [[nodiscard]] const char* getModel() const;

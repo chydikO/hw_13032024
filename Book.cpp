@@ -4,6 +4,7 @@
 
 #include "Book.h"
 #include <cstring>
+#include <iostream>
 
 Book::Book(const char* title, const char* author, int year) {
     _title = new char[strlen(title) + 1];
@@ -18,6 +19,13 @@ Book::Book(const char* title, const char* author, int year) {
 Book::Book() : _year(_year = 0) {
     this->_title = nullptr;
     this->_author = nullptr;
+}
+
+Book::~Book() {
+    delete[] _title;
+    delete[] _author;
+    std::cout << "~Book" << std::endl;
+
 }
 
 const char* Book::getTitle() const {
