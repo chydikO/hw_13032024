@@ -30,6 +30,7 @@ Library::~Library() {
     delete[] _name;
     delete[] _address;
     delete[] _books;
+    cout << "~Library" << endl;
 }
 
 void Library::addBook(const Book& book) {

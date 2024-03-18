@@ -3,6 +3,8 @@
 #include "Bicycle.h"
 #include "Library.h"
 #include "Book.h"
+using namespace std;
+
 
 int main() {
     cout << "---Task 1---" << endl;
@@ -22,19 +24,16 @@ int main() {
     cout << "---Task 2---" << endl;
     Library library("My Library", "123 Main St");
 
-    Book* book1 = new Book("Book 1", "Author 1", 2024);
-    Book* book2 = new Book("Book 2", "Author 2", 1985);
+    Book book1 = *new Book("Book 1", "Author 1", 2024);
+    Book book2 = *new Book("Book 2", "Author 2", 1985);
 
-    library.addBook(*book1);
-    library.addBook(*book2);
+    library.addBook(book1);
+    library.addBook(book2);
 
     library.printBooks();
     cout << "Books count in library -> " <<  library.getBookCount() << endl;
     cout << "library name -> " <<  library.getName() << endl;
     cout << "library address ->" <<  library.getAddress() << endl;
     
-    delete book1;
-    delete book2;
-
     return 0;
 }
