@@ -7,24 +7,27 @@
 
 using namespace std;
 
-Book::Book(const char* title, const char* author, int year) {
-    _title = new char[strlen(title) + 1];
-    strcpy(_title, title);
-
-    _author = new char[strlen(author) + 1];
-    strcpy(_author, author);
-
-    _year = year;
+Book::Book() {
+    _title[0] = '\0';
+    _author[0] = '\0';
+    _year = 0;
 }
 
-Book::Book() : _year(_year = 0) {
-    this->_title = nullptr;
-    this->_author = nullptr;
+Book::Book(const char* title, const char* author, int year) : _year(year) {
+    strncpy(_title, title, sizeof(_title) - 1);
+    _title[sizeof(_title) - 1] = '\0';
+    strncpy(_author, author, sizeof(_author) - 1);
+    _author[sizeof(_author) - 1] = '\0';
 }
 
-Book::~Book() {
-    delete[] _title;
-    delete[] _author;
+void Book::setTitle(const char* title) {
+    strncpy(_title, title, sizeof(_title) - 1);
+    _title[sizeof(_title) - 1] = '\0';
+}
+
+void Book::setAuthor(const char* author) {
+    strncpy(_author, author, sizeof(_author) - 1);
+    _author[sizeof(_author) - 1] = '\0';
 }
 
 const char* Book::getTitle() const {
@@ -38,16 +41,6 @@ const char* Book::getAuthor() const {
 int Book::getYear() const {
     return _year;
 }
-
-void Book::setTitle(char *title) {
-    delete[] _title;
-    _title = new char[strlen(title) + 1];
-    strcpy(_title, title);}
-
-void Book::setAuthor(char *author) {
-    delete[] _author;
-    _author = new char[strlen(author) + 1];
-    strcpy(_author, author);}
 
 void Book::setYear(int year) {
     Book::_year = year;

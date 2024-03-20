@@ -35,19 +35,27 @@ Library::~Library() {
 
 void Library::addBook(const Book& book) {
     if (_books == nullptr) {
-        _books = new Book[1];
-        _books[0] = book;
-        _bookCount = 1;
+        addFirstBook(book);
     } else {
-        Book* newBooks = new Book[_bookCount + 1];
-        for (int i = 0; i < _bookCount; i++) {
-            newBooks[i] = _books[i];
-        }
-        newBooks[_bookCount] = book;
-        delete[] _books;
-        _books = newBooks;
-        _bookCount++;
+        addNewBook(book);
     }
+}
+
+void Library::addFirstBook(const Book &book) {
+    _books = new Book[1];
+    _books[0] = book;
+    _bookCount = 1;
+}
+
+void Library::addNewBook(const Book &book) {
+    Book* newBooks = new Book[_bookCount + 1];
+    for (int i = 0; i < _bookCount; i++) {
+        newBooks[i] = _books[i];
+    }
+    newBooks[_bookCount] = book;
+    delete[] _books;
+    _books = newBooks;
+    _bookCount++;
 }
 
 void Library::printBooks() const {
@@ -67,10 +75,10 @@ char* Library::getAddress() const {
     return const_cast<char *>(_address);
 }
 
-Book* Library::getBooks() const {
-    return _books;
-}
-
 int Library::getBookCount() const {
     return _bookCount;
+}
+
+Book *Library::getBooks() const {
+    return _books;
 }

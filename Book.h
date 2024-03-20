@@ -9,21 +9,20 @@
 
 class Book {
 private:
-    char* _title;
-    char* _author;
+    char _title[100]{};
+    char _author[100]{};
     int _year;
 
 public:
     Book();
     Book(const char* title, const char* author, int year);
-    ~Book();
 
     [[nodiscard]] const char* getTitle() const;
     [[nodiscard]] const char* getAuthor() const;
     [[nodiscard]] int getYear() const;
 
-    void setTitle(char *title);
-    void setAuthor(char *author);
+    void setTitle(const char* title);
+    void setAuthor(const char* author);
     void setYear(int year);
 };
 #endif //HW_13032024_BOOK_H

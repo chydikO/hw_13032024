@@ -11,7 +11,7 @@ int main() {
     Wheel frontWheel(26.0, 2.1);
     Wheel rearWheel(26.0, 2.9);
 
-    Bicycle bicycle("Giant", "Anthem", frontWheel, rearWheel);
+     Bicycle bicycle("Giant", "Anthem", frontWheel, rearWheel);
 
     cout << "Brand: " << bicycle.getBrand() << endl;
     cout << "Model: " << bicycle.getModel() << endl;
@@ -22,10 +22,10 @@ int main() {
     cout << endl;
 
     cout << "---Task 2---" << endl;
-    Library library("My Library", "123 Main St");
+    Library library("My Library", "8 march St. 22-15");
 
-    Book book1 = *new Book("Book 1", "Author 1", 2024);
-    Book book2 = *new Book("Book 2", "Author 2", 1985);
+    Book book1("Book 1", "Author 1", 2024);
+    Book book2("Book 2", "Author 2", 1985);
 
     library.addBook(book1);
     library.addBook(book2);

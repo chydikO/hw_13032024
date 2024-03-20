@@ -16,6 +16,9 @@ private:
     Book* _books;
     int _bookCount;
 
+    void addFirstBook(const Book &book);
+    void addNewBook(const Book &book);
+
 public:
     Library();
     Library(const char* name, const char* address);
@@ -28,6 +31,7 @@ public:
     [[nodiscard]] char *getAddress() const;
     [[nodiscard]] Book *getBooks() const;
     [[nodiscard]] int getBookCount() const;
+
 };
 
 #endif //HW_13032024_LIBRARY_H
